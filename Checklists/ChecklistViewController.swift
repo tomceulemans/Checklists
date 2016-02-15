@@ -18,7 +18,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     ]
     
     override func viewDidLoad() {
-        super.viewDidLoad()    }
+        super.viewDidLoad()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
