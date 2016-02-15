@@ -61,3 +61,6 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+[alias]
+apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0r git rm --cached
