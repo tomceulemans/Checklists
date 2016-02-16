@@ -9,6 +9,7 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
+    var checklist: Checklist!
     var items = [
         ChecklistItem(text: "Walk the dog"),
         ChecklistItem(text: "Brush my teeth"),
@@ -25,6 +26,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = checklist.name
     }
 
     override func didReceiveMemoryWarning() {
