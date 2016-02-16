@@ -8,15 +8,31 @@
 
 import Foundation
 
-class ChecklistItem : NSObject {
-    var text:String
+class ChecklistItem : NSObject, NSCoding {
+    var text = ""
     var isChecked = false
     
     init(text:String) {
         self.text = text
+        super.init()
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        text = aDecoder.decodeObjectForKey("Text") as! String
+        isChecked = aDecoder.decodeBoolForKey("IsChecked")
+        super.init()
     }
     
     func toggleIsChecked() {
         isChecked = !isChecked
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(text, forKey: "Text")
+        aCoder.encodeBool(isChecked, forKey: "IsChecked")
     }
 }
