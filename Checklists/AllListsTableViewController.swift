@@ -19,6 +19,11 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     
@@ -79,6 +84,17 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
     
         cell.textLabel!.text = checkList.name
         cell.accessoryType = .DetailDisclosureButton
+        
+        let uncheckedItemsCount = checkList.countUncheckedItems()
+        if checkList.items.count == 0 {
+            cell.detailTextLabel!.text = "(No Items)"
+        }
+        else if uncheckedItemsCount == 0 {
+            cell.detailTextLabel!.text = "All Done!"
+        } else {
+            cell.detailTextLabel!.text = "\(checkList.countUncheckedItems()) Remaining"
+        }
+        
     
         return cell
     }
@@ -120,7 +136,7 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) {
             return cell
         } else {
-            return UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+            return UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
     }
     
