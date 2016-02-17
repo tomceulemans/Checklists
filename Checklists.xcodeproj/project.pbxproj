@@ -17,6 +17,7 @@
 		58B938411C70B55300C9031B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58B9383F1C70B55300C9031B /* Main.storyboard */; };
 		58B938431C70B55300C9031B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58B938421C70B55300C9031B /* Assets.xcassets */; };
 		58B938461C70B55300C9031B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58B938441C70B55300C9031B /* LaunchScreen.storyboard */; };
+		58F166711C75138D00D4B86C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F166701C75138D00D4B86C /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		58B938421C70B55300C9031B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58B938451C70B55300C9031B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58B938471C70B55300C9031B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58F166701C75138D00D4B86C /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				581D2F741C73BD48005B00B1 /* AllListsTableViewController.swift */,
 				581D2F761C73C36C005B00B1 /* Checklist.swift */,
 				581D2F781C73CA55005B00B1 /* ListDetailViewController.swift */,
+				58F166701C75138D00D4B86C /* DataModel.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				587DA61B1C70C8FD009F6C68 /* ItemDetailViewController.swift in Sources */,
 				581D2F771C73C36C005B00B1 /* Checklist.swift in Sources */,
 				587DA6191C70C151009F6C68 /* ChecklistItem.swift in Sources */,
+				58F166711C75138D00D4B86C /* DataModel.swift in Sources */,
 				581D2F751C73BD48005B00B1 /* AllListsTableViewController.swift in Sources */,
 				58B9383C1C70B55300C9031B /* AppDelegate.swift in Sources */,
 			);
