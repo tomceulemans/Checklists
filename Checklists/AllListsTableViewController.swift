@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllListsTableViewController: UITableViewController, ListDetailViewControllerDelegate {
+class AllListsTableViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
     var dataModel: DataModel!
     
     override func viewDidLoad() {
@@ -17,6 +17,19 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    
+        navigationController?.delegate = self
+        
+        let index = dataModel.indexOfSelectedChecklist
+        
+        if index >= 0 && index < dataModel.lists.count {
+            let checklist = dataModel.lists[index]
+            performSegueWithIdentifier("ShowChecklist", sender: checklist)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -71,7 +84,10 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        dataModel.indexOfSelectedChecklist = indexPath.row
+
         let checklist = dataModel.lists[indexPath.row]
+        
         performSegueWithIdentifier("ShowChecklist", sender: checklist)
     }
     
@@ -91,6 +107,12 @@ class AllListsTableViewController: UITableViewController, ListDetailViewControll
         controller.checklistToEdit = checklist
         
         presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        if viewController === self {
+            dataModel.indexOfSelectedChecklist = -1
+        }
     }
     
     func cellForTableView(tableView:UITableView) -> UITableViewCell {

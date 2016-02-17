@@ -11,8 +11,18 @@ import Foundation
 class DataModel {
     var lists = [Checklist]()
 
+    var indexOfSelectedChecklist: Int {
+        get {
+            return NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
+        }
+    }
+    
     init() {
         loadChecklists()
+        registerDefaults()
     }
     
     func documentsDirectory() -> String {
@@ -43,4 +53,8 @@ class DataModel {
         }
     }
 
+    func registerDefaults() {
+        let dictionary = [ "ChecklistIndex": -1 ]
+        NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
+    }
 }
